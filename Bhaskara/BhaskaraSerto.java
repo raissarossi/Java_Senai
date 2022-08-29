@@ -16,6 +16,12 @@ public class BhaskaraSerto {
         return sinal;
     }
 
+    public static double ConverterABC(String converter) {
+        if (converter.contains("X^2")==true){
+            int a =converter.lastIndexOf("X^2");
+
+        }
+    }
 
     public static void main(String[] args) {
         
@@ -39,7 +45,11 @@ public class BhaskaraSerto {
 
         System.out.println("k"+sinal);
 
+
+        
+
         String akiA = num.substring(0, sinal);
+        ConverterABC(akiA);
         System.out.println(akiA);
                 //RETIRAR O VALOR DE AKIA DE NUM
 
@@ -53,4 +63,3 @@ public class BhaskaraSerto {
         System.out.println(akiC);
     }
 }
-
