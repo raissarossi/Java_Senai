@@ -16,26 +16,7 @@ public class BhaskaraSerto {
         return sinal;
     }
 
-    public static double ConverterABC(String converter) {
-        if (converter.endsWith("X^2")){
-            int a =converter.lastIndexOf("X^2");
-            converter = converter.substring(0,a);
-            double valorA = Double.parseDouble(converter);
-            return valorA;
-        }
-        if (converter.endsWith("X")){
-            int b =converter.lastIndexOf("X");
-            converter = converter.substring(0,b);
-            double valorB = Double.parseDouble(converter);
-            return valorB;
-        }
-        if ((!converter.endsWith("X^2"))&&(!converter.endsWith("X"))){
-            converter = converter.substring(VerificarSinal(converter));
-            double valorC = Double.parseDouble(converter);
-            return valorC;
-        }
-        return 0;
-    }
+
 
     public static void main(String[] args) {
         
@@ -60,20 +41,43 @@ public class BhaskaraSerto {
         System.out.println("k"+sinal);
 
 
-        
+        double valorA = 0;
+        double valorB = 0;
+        double valorC = 0;
 
-        String aki1 = num.substring(0, sinal);
-        ConverterABC(aki1);
-        System.out.println("aki1 "+aki1);
-                //RETIRAR O VALOR DE AKI1 DE NUM
+        String stringA;
+        String stringB;
+        String stringC;
 
-        sinal = VerificarSinal(num);
-        String aki2 = num.substring(0, sinal);
-        System.out.println("aki2 "+aki2);
-                //RETIRAR O VALOR DE AKI2 DE NUM
+        int x = 0;
+            while (x<3){
+                // num.lastIndex(); separar valor do original
+                String Separador = num.substring(0, sinal);
 
-        sinal = VerificarSinal(num);
-        String aki3 = num.substring(0, sinal);
-        System.out.println("aki3 "+aki3);
+                if (Separador.endsWith("X^2")){
+                    int a =Separador.lastIndexOf("X^2");
+                    stringA = Separador.substring(0,a);
+                    stringA.replace("X^2", "");
+                    valorA = Double.parseDouble(stringA);
+                    System.out.println(valorA);
+                    
+
+                }
+                if (Separador.endsWith("X")){
+                    int b =Separador.lastIndexOf("X");
+                    Separador = Separador.substring(0,b);
+                    Separador = Separador.replace("X", "");
+                    valorB = Double.parseDouble(Separador);
+                    System.out.println(valorB);
+                    
+                }
+                if ((!Separador.endsWith("X^2"))&&(!Separador.endsWith("X"))){
+                    Separador = Separador.substring(VerificarSinal(Separador));
+                    valorC = Double.parseDouble(Separador);
+                    System.out.println(valorC);
+                    
+                }
+                x++;
+            }
     }
 }
