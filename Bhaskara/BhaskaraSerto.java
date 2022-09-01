@@ -3,7 +3,7 @@ public class BhaskaraSerto {
         int sinal = -1;
         int mais = num.indexOf("+",1);
         int menos = num.indexOf("-",1);
-        System.out.println("valordemenos"+menos);
+        System.out.println("valorDeMenos "+menos);
         if (mais == -1){
             mais = menos+1;
         }
@@ -17,16 +17,30 @@ public class BhaskaraSerto {
     }
 
     public static double ConverterABC(String converter) {
-        if (converter.contains("X^2")==true){
+        if (converter.endsWith("X^2")){
             int a =converter.lastIndexOf("X^2");
-
+            converter = converter.substring(0,a);
+            double valorA = Double.parseDouble(converter);
+            return valorA;
         }
+        if (converter.endsWith("X")){
+            int b =converter.lastIndexOf("X");
+            converter = converter.substring(0,b);
+            double valorB = Double.parseDouble(converter);
+            return valorB;
+        }
+        if ((!converter.endsWith("X^2"))&&(!converter.endsWith("X"))){
+            converter = converter.substring(VerificarSinal(converter));
+            double valorC = Double.parseDouble(converter);
+            return valorC;
+        }
+        return 0;
     }
 
     public static void main(String[] args) {
         
         System.out.println("Ola bom dia, para funcionar corretamente digite a equacao reduzida\n");
-        String num = "1x²+2x+3";
+        String num = "2x+3+1x²";
         num = num.replaceAll(",", ".");
         if (num.indexOf("-")==0){}//do nothing
         else if (num.indexOf("+")==0){}//do nothing
@@ -48,18 +62,18 @@ public class BhaskaraSerto {
 
         
 
-        String akiA = num.substring(0, sinal);
-        ConverterABC(akiA);
-        System.out.println(akiA);
-                //RETIRAR O VALOR DE AKIA DE NUM
+        String aki1 = num.substring(0, sinal);
+        ConverterABC(aki1);
+        System.out.println("aki1 "+aki1);
+                //RETIRAR O VALOR DE AKI1 DE NUM
 
         sinal = VerificarSinal(num);
-        String akiB = num.substring(0, sinal);
-        System.out.println(akiB);
-                //RETIRAR O VALOR DE AKIA DE NUM
+        String aki2 = num.substring(0, sinal);
+        System.out.println("aki2 "+aki2);
+                //RETIRAR O VALOR DE AKI2 DE NUM
 
         sinal = VerificarSinal(num);
-        String akiC = num.substring(0, sinal);
-        System.out.println(akiC);
+        String aki3 = num.substring(0, sinal);
+        System.out.println("aki3 "+aki3);
     }
 }
