@@ -5,7 +5,7 @@ import java.lang.Math;  import java.text.DecimalFormat;
 public class Atividades {
     public static void main(String[] args) {
 
-    // AREA, DIAMETER AND CIRCUMFERENCE FROM THE RADIUS
+    //1- AREA, DIAMETER AND CIRCUMFERENCE FROM THE RADIUS------------------------------------------------------------------------------------------
         Scanner r = new Scanner(System.in);
         DecimalFormat f = new DecimalFormat("#.00");
         System.out.println("Enter the radius value:");
@@ -31,7 +31,7 @@ public class Atividades {
 
 
 
-    // CALCULATE IMC 
+    //2-CALCULATE IMC--------------------------------------------------------------------------------------------------------------------------------
         Scanner w = new Scanner(System.in);
         System.out.println("Enter your weight: ");
         double weight = w.nextDouble();
